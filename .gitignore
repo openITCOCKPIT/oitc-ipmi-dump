@@ -1,0 +1,4 @@
+/dist/
+/oitc-ipmi-dump
+/oitc-ipmi-dump.exe
+*.json
