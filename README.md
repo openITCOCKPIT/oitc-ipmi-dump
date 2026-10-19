@@ -40,7 +40,9 @@ A reservation only protects the following reads of the SDR repository or the SEL
 **Not** in a dump: host name, IP or MAC addresses, serial numbers and other FRU data, users and passwords of the BMC,
 network configuration of the BMC.
 
-Please have a look at the JSON file before you send it. The SEL shows when events like power supply failures happened.
+
+> [!WARNING]
+> Please have a look at the JSON file before you send it. The SEL shows when events like power supply failures happened.
 
 ## Usage
 
@@ -95,6 +97,9 @@ Please open an issue in this repository and attach the JSON file. Please tell us
 - whether we may publish the dump as test data in the repository of the openITCOCKPIT Monitoring Agent.
   Dumps without this permission are only used for tests which are not published.
 - anything special about the server, e.g. a power supply which is unplugged on purpose
+
+In case you have any question or want to get in touch, please join the
+[openITCOCKPIT Community](https://openitcockpit.io/community/)
 
 ## Building
 
