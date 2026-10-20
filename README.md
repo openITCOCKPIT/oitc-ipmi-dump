@@ -55,8 +55,8 @@ The tool requires root and the IPMI kernel modules (`/dev/ipmi0`). They are load
 otherwise load them with `modprobe ipmi_si ipmi_devintf`.
 
 ```
-chmod +x oitc-ipmi-dump-1.1-linux-amd64
-sudo ./oitc-ipmi-dump-1.1-linux-amd64 -o ipmi-dump.json
+chmod +x oitc-ipmi-dump-1.2-linux-amd64
+sudo ./oitc-ipmi-dump-1.2-linux-amd64 -o ipmi-dump.json
 ```
 
 ### Windows
@@ -65,7 +65,7 @@ The tool uses the Microsoft IPMI driver (WMI class `Microsoft_IPMI`), which is a
 system has a BMC. Run it in a command prompt as administrator:
 
 ```
-oitc-ipmi-dump-1.1-windows-amd64.exe -o ipmi-dump.json
+oitc-ipmi-dump-1.2-windows-amd64.exe -o ipmi-dump.json
 ```
 
 ### Output
@@ -118,7 +118,7 @@ compiled into the binaries (`THIRD_PARTY_LICENSES.txt`) and the SHA256 checksums
 ```json
 {
   "tool": "oitc-ipmi-dump",
-  "version": "1.1",
+  "version": "1.2",
   "created": "2026-10-16T08:56:50+02:00",
   "os": "linux/amd64",
   "direct":   { "errors": [], "device_id": {}, "chassis_status": {}, "sensors": [], "sel_info": {}, "sel": "", "duration_seconds": 1.7 },

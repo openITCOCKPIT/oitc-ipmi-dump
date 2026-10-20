@@ -23,7 +23,7 @@ import (
 	"github.com/bougou/go-ipmi/pkg/types"
 )
 
-const version = "1.1"
+const version = "1.2"
 
 const logEnv = "OITC_IPMI_DUMP_LOG"
 
@@ -209,15 +209,20 @@ func collect(ctx context.Context, c *client.Client) result {
 	} else {
 		addErr("sensors", err)
 	}
+	selEntries := -1
 	if res, err := c.GetSELInfo(ctx); err == nil {
 		r.SELInfo = res
+		selEntries = int(res.Entries)
 	} else {
 		addErr("sel info", err)
 	}
-	if entries, err := c.GetSELEntries(ctx, 0); err == nil {
-		r.SEL = types.FormatSELs(entries, nil)
-	} else {
-		addErr("sel entries", err)
+	// An empty SEL answers Get SEL Entry with 0xcb (record not found)
+	if selEntries != 0 {
+		if entries, err := c.GetSELEntries(ctx, 0); err == nil {
+			r.SEL = types.FormatSELs(entries, nil)
+		} else {
+			addErr("sel entries", err)
+		}
 	}
 	r.DurationSec = time.Since(start).Seconds()
 	return r
